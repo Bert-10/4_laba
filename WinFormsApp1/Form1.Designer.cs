@@ -32,7 +32,7 @@ namespace WinFormsApp1
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.txtOut = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // button1
@@ -53,6 +53,7 @@ namespace WinFormsApp1
             this.button2.TabIndex = 1;
             this.button2.Text = "Взять напиток";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // richTextBox1
             // 
@@ -64,20 +65,20 @@ namespace WinFormsApp1
             this.richTextBox1.TabIndex = 2;
             this.richTextBox1.Text = "";
             // 
-            // richTextBox2
+            // txtOut
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(2, 144);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(282, 150);
-            this.richTextBox2.TabIndex = 3;
-            this.richTextBox2.Text = "";
+            this.txtOut.Location = new System.Drawing.Point(2, 144);
+            this.txtOut.Name = "txtOut";
+            this.txtOut.Size = new System.Drawing.Size(282, 150);
+            this.txtOut.TabIndex = 3;
+            this.txtOut.Text = "";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(415, 306);
-            this.Controls.Add(this.richTextBox2);
+            this.Controls.Add(this.txtOut);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -92,7 +93,7 @@ namespace WinFormsApp1
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.RichTextBox txtOut;
     }
 }
 

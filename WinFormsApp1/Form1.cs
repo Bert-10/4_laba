@@ -25,9 +25,22 @@ namespace WinFormsApp1
         private void button1_Click(object sender, EventArgs e)
         {
             this.DrinkablesList.Clear();
+            var rnd = new Random();
             for (var i = 0; i < 10; ++i)
             {
-                this.DrinkablesList.Add(new Juice());
+                switch (rnd.Next() % 3) 
+                {
+                    case 0: 
+                        this.DrinkablesList.Add(new Juice());
+                        break;
+                    case 1: 
+                        this.DrinkablesList.Add(new Gas());
+                        break;
+                    case 2: 
+                        this.DrinkablesList.Add(new Alco());
+                        break;
+                        
+                }
             }
             ShowInfo();
         }
@@ -58,6 +71,21 @@ namespace WinFormsApp1
             richTextBox1.Text = "Сок\tГазировка\tАлкоголь";
             richTextBox1.Text += "\n";
             richTextBox1.Text += String.Format("{0}\t{1}\t\t{2}", JuiceCount, GasCount, AlcoCount);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (this.DrinkablesList.Count == 0)
+            {
+                txtOut.Text = "Автомат пуст";
+                return;
+            }
+
+            var fruit = this.DrinkablesList[0];
+            this.DrinkablesList.RemoveAt(0);
+            txtOut.Text = fruit.GetInfo();
+
+            ShowInfo();
         }
     }
 }
