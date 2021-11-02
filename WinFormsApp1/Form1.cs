@@ -25,19 +25,24 @@ namespace WinFormsApp1
         private void button1_Click(object sender, EventArgs e)
         {
             this.DrinkablesList.Clear();
+          //  var r = new Random();
+            
+
+
+
             var rnd = new Random();
             for (var i = 0; i < 10; ++i)
             {
                 switch (rnd.Next() % 3) 
                 {
                     case 0: 
-                        this.DrinkablesList.Add(new Juice());
+                        this.DrinkablesList.Add(Juice.Generate());
                         break;
                     case 1: 
-                        this.DrinkablesList.Add(new Gas());
+                        this.DrinkablesList.Add(Gas.Generate());
                         break;
                     case 2: 
-                        this.DrinkablesList.Add(new Alco());
+                        this.DrinkablesList.Add(Alco.Generate());
                         break;
                         
                 }
@@ -81,9 +86,9 @@ namespace WinFormsApp1
                 return;
             }
 
-            var fruit = this.DrinkablesList[0];
+            var Drinkable = this.DrinkablesList[0];
             this.DrinkablesList.RemoveAt(0);
-            txtOut.Text = fruit.GetInfo();
+            txtOut.Text = Drinkable.GetInfo();
 
             ShowInfo();
         }
