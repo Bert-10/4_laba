@@ -26,10 +26,7 @@ namespace WinFormsApp1
         {
             this.DrinkablesList.Clear();
           //  var r = new Random();
-            
-
-
-
+           
             var rnd = new Random();
             for (var i = 0; i < 10; ++i)
             {
@@ -82,7 +79,8 @@ namespace WinFormsApp1
         {
             if (this.DrinkablesList.Count == 0)
             {
-                txtOut.Text = "Автомат пуст";
+                txtOut.Text = "Конец очереди. Автомат пуст";
+                pictureBox1.Image = null;
                 return;
             }
 
@@ -90,7 +88,40 @@ namespace WinFormsApp1
             this.DrinkablesList.RemoveAt(0);
             txtOut.Text = Drinkable.GetInfo();
 
+            switch (Drinkable.GetTYPE())
+            {
+                case "яблоко":              
+                    pictureBox1.Image = Properties.Resources.apple;
+                    break;
+                case "виноград":
+                    pictureBox1.Image = Properties.Resources.grape;
+                    break;
+                case "апельсин":
+                    pictureBox1.Image = Properties.Resources.orange;
+                    break;
+                case "кола":
+                    pictureBox1.Image = Properties.Resources.cola;              
+                    break;
+                case "спрайт":
+                    pictureBox1.Image = Properties.Resources.sprite;
+                    break;
+                case "фанта":
+                    pictureBox1.Image = Properties.Resources.fanta;
+                    break;
+                case "водка":
+                    pictureBox1.Image = Properties.Resources.vodka;
+                    break;
+                case "вино":
+                    pictureBox1.Image = Properties.Resources.wine;
+                    break;
+                case "пиво":
+                    pictureBox1.Image = Properties.Resources.beer;
+                    break;
+
+            }
+
             ShowInfo();
         }
+
     }
 }

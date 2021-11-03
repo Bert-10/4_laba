@@ -33,6 +33,8 @@ namespace WinFormsApp1
             this.button2 = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.txtOut = new System.Windows.Forms.RichTextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -47,9 +49,9 @@ namespace WinFormsApp1
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(314, 144);
+            this.button2.Location = new System.Drawing.Point(2, 300);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(89, 150);
+            this.button2.Size = new System.Drawing.Size(282, 103);
             this.button2.TabIndex = 1;
             this.button2.Text = "Взять напиток";
             this.button2.UseVisualStyleBackColor = true;
@@ -73,17 +75,28 @@ namespace WinFormsApp1
             this.txtOut.TabIndex = 3;
             this.txtOut.Text = "";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(290, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(312, 401);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(415, 306);
+            this.ClientSize = new System.Drawing.Size(602, 407);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtOut);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Автомат";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -94,6 +107,7 @@ namespace WinFormsApp1
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.RichTextBox txtOut;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-// БУДТЕ ВНИМАТЕЛЬНЕЕ: ТУТ ДОЛЖЕН СТОЯТЬ ТОТ ЖЕ namespace что и в Program.cs
 namespace WindowsFormsApp1
 {
     public class Drinkables
@@ -27,6 +26,12 @@ namespace WindowsFormsApp1
                     break;
             }
             str += "\nОбъём: " + this.Volume + s;
+            return str;
+        }
+        public virtual String GetTYPE()
+        {
+            string str=""; 
+
             return str;
         }
 
@@ -57,6 +62,26 @@ namespace WindowsFormsApp1
                 type = (JuicesType)rnd.Next(3),
             };
         }
+        public override String GetTYPE()
+        {
+            var str = "";
+            switch (this.type)
+            {
+                case JuicesType.яблоко:
+                    str = "яблоко";
+                    break;
+                case JuicesType.виноград:
+                    str = "виноград";
+                    break;
+                case JuicesType.апельсин:
+                    str = "апельсин";
+                    break;
+            }
+            return str;
+        }
+
+
+
     }
     //газировка
     public enum GasType { кола, спрайт,фанта };
@@ -82,6 +107,23 @@ namespace WindowsFormsApp1
                 type = (GasType)rnd.Next(3),
             };
         }
+        public override String GetTYPE()
+        {
+            var str = "";
+            switch (this.type)
+            {
+                case GasType.кола:
+                    str = "кола";
+                    break;
+                case GasType.спрайт:
+                    str = "спрайт";
+                    break;
+                case GasType.фанта:
+                    str = "фанта";
+                    break;
+            }
+            return str;
+        }
     }
     //алкоголь
     public enum AlcoType { водка, вино, пиво };
@@ -106,6 +148,23 @@ namespace WindowsFormsApp1
                 Number = rnd.Next(101),
                 type = (AlcoType)rnd.Next(3),
             };
+        }
+        public override String GetTYPE()
+        {
+            var str = "";
+            switch (this.type)
+            {
+                case AlcoType.водка:
+                    str = "водка";
+                    break;
+                case AlcoType.вино:
+                    str = "вино";
+                    break;
+                case AlcoType.пиво:
+                    str = "пиво";
+                    break;
+            }
+            return str;
         }
     }
 
