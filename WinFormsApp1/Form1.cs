@@ -45,6 +45,7 @@ namespace WinFormsApp1
                 }
             }
             ShowInfo();
+            ochered();
         }
 
         private void ShowInfo()
@@ -121,7 +122,41 @@ namespace WinFormsApp1
             }
 
             ShowInfo();
+            ochered();
         }
+        
+       private void ochered()
+       {
+            int count = 1;
+            string s = "";
+           
+            foreach (var fruit in this.DrinkablesList)
+            {
+
+                if (fruit is Juice)
+                {
+                    s = s + count + " сок\n";
+                    count++;
+                }
+                else if (fruit is Gas)
+                {
+                    s = s + count + " газировка\n";
+                    count++;
+                }
+                else if (fruit is Alco)
+                {
+                    s = s + count + " алкоголь\n";
+                    count++;
+                }
+            }
+            richTextBox2.Text = s;
+
+            if (this.DrinkablesList.Count == 0)
+            {
+                richTextBox2.Text = "Конец очереди. Автомат пуст";
+            }
+        }
+       
 
     }
 }

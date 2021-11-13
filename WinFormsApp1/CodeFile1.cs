@@ -8,8 +8,9 @@ namespace WindowsFormsApp1
 {
     public class Drinkables
     {
+        public enum VolumeType { пол, один, два };
         public static Random rnd = new Random();
-        public VolumeType Volume = VolumeType.один;
+        public VolumeType Volume;
         public virtual String GetInfo()
         {
             string str="",s="";
@@ -37,14 +38,61 @@ namespace WindowsFormsApp1
 
     }
     //сок
-    public enum JuicesType { яблоко, виноград, апельсин };
-    public enum PulpType { есть, нет };
-    public enum VolumeType { пол, один, два };
+   // public enum JuicesType { яблоко, виноград, апельсин };
+   // public enum PulpType { есть, нет };
+   // public enum VolumeType { пол, один, два };
     public class Juice : Drinkables
     {
-       // public VolumeType Volume = VolumeType.один;
-        public JuicesType type = JuicesType.яблоко; 
-        public PulpType Pulp= PulpType.есть;
+        public enum JuicesType { яблоко, виноград, апельсин };
+        public enum PulpType { есть, нет };
+        // public VolumeType Volume = VolumeType.один;
+        public JuicesType type; 
+        public PulpType Pulp;
+
+        // public Juice(VolumeType v,PulpType p, JuicesType j)
+        public Juice(int v, int p,int j)
+        {
+            switch (v)
+            {
+                case 1:
+                    Volume = VolumeType.два;
+                    break;
+                case 2:
+                    Volume = VolumeType.один;
+                    break;
+                case 3:
+                    Volume = VolumeType.пол;
+                    break;
+            }
+            switch (j)
+            {
+                case 1:
+                    type=JuicesType.апельсин;
+                    break;
+                case 2:
+                    type = JuicesType.виноград;
+                    break;
+                case 3:
+                    type = JuicesType.яблоко;
+                    break;
+            }
+            switch (p)
+            {
+                case 1:
+                    Pulp = PulpType.есть;
+                    break;
+                case 2:
+                    Pulp = PulpType.нет;
+                    break;              
+            }
+            // Volume =v;
+            // Pulp = p;
+            // type = j;
+        }
+        Juice()
+        {
+
+        }
         public override String GetInfo()
         {
             var str = "Сок";
@@ -84,12 +132,50 @@ namespace WindowsFormsApp1
 
     }
     //газировка
-    public enum GasType { кола, спрайт,фанта };
+   // public enum GasType { кола, спрайт,фанта };
     public class Gas : Drinkables
     {
-      //  public VolumeType Volume = VolumeType.два;
+        //  public VolumeType Volume = VolumeType.два;
+        public enum GasType { кола, спрайт, фанта };
         public int Count = 0;
-        public GasType type = GasType.кола; // тип
+        public GasType type; // тип
+        public Gas(int v, int p, int j)
+        {
+            switch (v)
+            {
+                case 1:
+                    Volume = VolumeType.два;
+                    break;
+                case 2:
+                    Volume = VolumeType.один;
+                    break;
+                case 3:
+                    Volume = VolumeType.пол;
+                    break;
+            }
+            switch (p)
+            {
+                case 1:
+                    type = GasType.кола;
+                    break;
+                case 2:
+                    type = GasType.спрайт;
+                    break;
+                case 3:
+                    type = GasType.фанта;
+                    break;
+            }
+            Count = j;
+            // Volume =v;
+            // Pulp = p;
+            // type = j;
+        }
+        Gas()
+        {
+
+        }
+
+
         public override String GetInfo()
         {
             var str = "Газировка";
@@ -126,12 +212,53 @@ namespace WindowsFormsApp1
         }
     }
     //алкоголь
-    public enum AlcoType { водка, вино, пиво };
+   // public enum AlcoType { водка, вино, пиво };
     public class Alco : Drinkables
     {
-     //   public VolumeType Volume = VolumeType.пол;
-        public AlcoType type = AlcoType.вино;
+        //   public VolumeType Volume = VolumeType.пол;
+        //public AlcoType type = AlcoType.вино;
+        public AlcoType type;
         public int Number = 0;
+        public enum AlcoType { водка, вино, пиво };
+
+        public Alco(int v, int p, int j)
+        {
+            switch (v)
+            {
+                case 1:
+                    Volume = VolumeType.два;
+                    break;
+                case 2:
+                    Volume = VolumeType.один;
+                    break;
+                case 3:
+                    Volume = VolumeType.пол;
+                    break;
+            }
+            switch (p)
+            {
+                case 1:
+                    type = AlcoType.вино;
+                    break;
+                case 2:
+                    type = AlcoType.водка;
+                    break;
+                case 3:
+                    type = AlcoType.пиво;
+                    break;
+            }
+            Number = j;
+            // Volume =v;
+            // Pulp = p;
+            // type = j;
+        }
+        Alco()
+        {
+
+        }
+
+
+
         public override String GetInfo()
         {
             string str = "Алкоголь";
